@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/PyCharm/ML_lab4/mlruns/0/bfca3ddf97d14bf8b85a712101cededa/artifacts
+end_time: 1745671899305
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: bfca3ddf97d14bf8b85a712101cededa
+run_name: 'Experiment 1 - Stage 3: Model Evaluation'
+run_uuid: bfca3ddf97d14bf8b85a712101cededa
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745671873805
+status: 3
+tags: []
+user_id: Владелец

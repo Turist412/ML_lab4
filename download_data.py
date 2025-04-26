@@ -1,17 +1,27 @@
 import logging
+
+import mlflow
+
 from utils import download_and_extract, process_data
 
 def download_and_prepare_data(config):
-    images_url = 'https://www.robots.ox.ac.uk/~vgg/data/flowers/102/102flowers.tgz'
-    labels_url = 'https://www.robots.ox.ac.uk/~vgg/data/flowers/102/imagelabels.mat'
+    with mlflow.start_run(run_name="Experiment 2 - Stage 1: Data Preparation", nested=True):
 
-    images_dir = download_and_extract(images_url, config["data"]["images_dir"])
-    labels_path = download_and_extract(labels_url, config["data"]["labels_dir"])
+        images_url = 'https://www.robots.ox.ac.uk/~vgg/data/flowers/102/102flowers.tgz'
+        labels_url = 'https://www.robots.ox.ac.uk/~vgg/data/flowers/102/imagelabels.mat'
 
-    train_df, val_df, test_df = process_data(images_dir, labels_path, config)
-    logging.info(
-        f"TRAIN dataset size: {len(train_df)}, "
-        f"VAL dataset size: {len(val_df)}, "
-        f"Test dataset size: {len(test_df)}"
-    )
+        images_dir = download_and_extract(images_url, config["data"]["images_dir"])
+        labels_path = download_and_extract(labels_url, config["data"]["labels_dir"])
+
+        train_df, val_df, test_df = process_data(images_dir, labels_path, config)
+        logging.info(
+            f"TRAIN dataset size: {len(train_df)}, "
+            f"VAL dataset size: {len(val_df)}, "
+            f"Test dataset size: {len(test_df)}"
+        )
+
+        mlflow.log_param("train_dataset_size", len(train_df))
+        mlflow.log_param("val_dataset_size", len(val_df))
+        mlflow.log_param("test_dataset_size", len(test_df))
+
     return images_dir, train_df, val_df, test_df

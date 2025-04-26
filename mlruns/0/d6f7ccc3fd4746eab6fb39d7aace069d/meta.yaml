@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/PyCharm/ML_lab4/mlruns/0/d6f7ccc3fd4746eab6fb39d7aace069d/artifacts
+end_time: 1745676291175
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d6f7ccc3fd4746eab6fb39d7aace069d
+run_name: Experiment 2 - Full Pipeline
+run_uuid: d6f7ccc3fd4746eab6fb39d7aace069d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745675419571
+status: 3
+tags: []
+user_id: Владелец

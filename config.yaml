@@ -4,10 +4,10 @@ data:
   test_size: 0.1
   val_size: 0.1
   random_state: 42
-  batch_names_select: ["0", "1", "2", "3", "4", "5"]
+  batch_names_select: ["0", "1", "2"]
 
 training:
-  lr: 0.001
+  lr: 0.005
   num_epochs: 10
   n_batches: 6
 

@@ -1,0 +1,16 @@
+artifact_uri: file:///D:/PyCharm/ML_lab4/mlruns/0/d78a1aaf1d1144329d10d34c394d9ec7/artifacts
+deleted_time: 1745674891017
+end_time: 1745667698416
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: d78a1aaf1d1144329d10d34c394d9ec7
+run_name: 'Experiment 1 - Stage 1: Data Preparation'
+run_uuid: d78a1aaf1d1144329d10d34c394d9ec7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745667379643
+status: 4
+tags: []
+user_id: Владелец

@@ -145,7 +145,7 @@ def load_labels(labels_path: str) -> pd.DataFrame:
     Returns:
     - pd.DataFrame: DataFrame containing the labels.
     """
-    labels_mat = sio.loadmat('/content/data/labels/imagelabels.mat')
+    labels_mat = sio.loadmat('./data/labels/imagelabels.mat')
     labels_df = pd.DataFrame({"label": labels_mat["labels"][0]})
 
     return labels_df
@@ -180,7 +180,7 @@ def assign_batches(labels_df: pd.DataFrame, config: Dict[str, Any]) -> pd.DataFr
     labels_df_ = labels_df.copy(deep=True)
     labels_df_["batch_name"] = "not_set"
 
-    n_batches = config["n_batches"]
+    n_batches = config["training"]["n_batches"]
     batch_size = len(labels_df_) // n_batches
 
     batch_size_current = 0
@@ -213,7 +213,7 @@ def select_batches(labels_df: pd.DataFrame, config: Dict[str, Any]) -> pd.DataFr
     Returns:
     - pd.DataFrame:
     """
-    batch_names: List[str] = config["batch_names_select"]
+    batch_names: List[str] = config["data"]["batch_names_select"]
     labels_df_ = labels_df.copy(deep=True)
 
     labels_df_ = labels_df_[labels_df_["batch_name"].isin(batch_names)]
@@ -241,13 +241,13 @@ def process_data(images_dir: str, labels_path: str, config: Dict[str, Any]) -> T
     valid_labels_df = find_add_images_to_labels(images_dir, labels_df)
 
     # Split data into train and test
-    train_df, test_df = train_test_split(valid_labels_df, test_size=config.get('test_size', 0.2), random_state=config.get('random_state', 42))
+    train_df, test_df = train_test_split(valid_labels_df, test_size=config["data"]["test_size"], random_state=config["data"]["random_state"])
 
     train_df = assign_batches(train_df, config)
     train_df = select_batches(train_df, config)
 
     # Further split train_df into train and validation
-    train_df, val_df = train_test_split(train_df, test_size=config.get('val_size', 0.2), random_state=config.get('random_state', 42))
+    train_df, val_df = train_test_split(train_df, test_size=config["data"]["test_size"], random_state=config["data"]["random_state"])
 
     logging.info(f"Prepared 3 data splits: train, size: {len(train_df)}, val: {len(val_df)}, test: {len(val_df)}")
 
@@ -297,8 +297,8 @@ def create_data_loader(
     - DataLoader: DataLoader for the dataset.
     """
     transform: Optional[Any] = config.get('transform', None)
-    batch_size: int = config.get('batch_size', 32)
-    num_workers: int = config.get('num_workers', 2)
+    batch_size: int = config["dataloader"]["batch_size"]
+    num_workers: int = config["dataloader"]["num_workers"]
 
     dataset = ImageDataset(df, transform=transform)
     data_loader = DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=num_workers)

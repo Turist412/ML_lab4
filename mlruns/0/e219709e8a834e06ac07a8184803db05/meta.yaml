@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/PyCharm/ML_lab4/mlruns/0/e219709e8a834e06ac07a8184803db05/artifacts
+end_time: 1745671873783
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e219709e8a834e06ac07a8184803db05
+run_name: 'Experiment 1 - Stage 2: Model Training'
+run_uuid: e219709e8a834e06ac07a8184803db05
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745671019707
+status: 3
+tags: []
+user_id: Владелец

@@ -5,7 +5,7 @@ from train import train_pipeline
 from evaluate import evaluate_model
 
 def main():
-    with mlflow.start_run():
+    with mlflow.start_run(run_name="Experiment 2 - Full Pipeline"):
         with open("config.yaml", "r") as f:
             config = yaml.safe_load(f)
 

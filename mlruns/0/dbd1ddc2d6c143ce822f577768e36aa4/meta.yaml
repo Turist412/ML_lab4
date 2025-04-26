@@ -1,0 +1,16 @@
+artifact_uri: file:///D:/PyCharm/ML_lab4/mlruns/0/dbd1ddc2d6c143ce822f577768e36aa4/artifacts
+deleted_time: 1745675355043
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: dbd1ddc2d6c143ce822f577768e36aa4
+run_name: 'Experiment 1 - Stage 2: Model Training'
+run_uuid: dbd1ddc2d6c143ce822f577768e36aa4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745675281151
+status: 1
+tags: []
+user_id: Владелец
